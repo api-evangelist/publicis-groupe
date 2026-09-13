@@ -1,0 +1,58 @@
+generated: '2026-09-13'
+method: searched
+source: >-
+  https://github.com/PublicisSapient/knowhow-api/releases, https://hub.docker.com/r/psknowhow/knowhow-api,
+  https://registry.npmjs.org (@psnext, @publicissapient scopes) and probes of publicisgroupe.com
+  and publicissapient.com, 2026-09-13
+name: Publicis Groupe — API lifecycle posture
+versioning:
+  scheme: semver
+  surface: KnowHOW suite (knowhow-api and its sibling services)
+  current: 17.1.7
+  policy_published: false
+  note: >-
+    Versions are visible as GitHub release tags and container tags. No written versioning
+    policy — no statement about what constitutes a breaking change, how long a major line
+    is supported, or how an upgrade is sequenced — is published anywhere on a Groupe host.
+deprecation:
+  policy_published: false
+  sunset_header: not documented
+  deprecation_header: not documented
+  rfc8594: false
+  deprecated_operations: >-
+    Not determinable — no OpenAPI was captured, because the KnowHOW spec is generated at
+    runtime on a self-hosted deployment and no public instance exists to read it from.
+  note: >-
+    No Deprecation pointer is emitted. The one deprecation-shaped fact observable on a
+    public surface is the Block SDK's own migration note, which records that register()
+    became asynchronous and can now throw after version 0.0.10 — a breaking change
+    documented in a README rather than by any policy.
+status_page:
+  published: false
+  probed:
+  - url: https://www.publicisgroupe.com/.well-known/api-catalog
+    status: 404
+  note: >-
+    No status.publicisgroupe.com, status.publicissapient.com or equivalent status page was
+    found, and none is expected: the Groupe operates no hosted API for third parties. No
+    StatusPage pointer is emitted.
+sla:
+  published: false
+support:
+  channel: https://www.publicissapient.com/contact
+  developer_support: >-
+    None specific to developers. KnowHOW questions route to the Confluence wiki at
+    knowhow.suite.publicissapient.com; knowhow-mcp ships an operator-configured support
+    email rather than a public one.
+distribution_decay:
+  - artifact: psknowhow/knowhow-api container
+    latest_published: 17.0.0 (2026-05-07)
+    source_latest: 17.1.7 (2026-08-31)
+    gap: seven patch releases, about four months
+  - artifact: '@psnext/block-sdk documented CDN pin'
+    latest_published: 0.0.25 (pinned in the SDK README)
+    source_latest: 0.0.32 (2025-11-03 on npm)
+    gap: seven patch versions
+  - artifact: '@publicissapient eslint/styleguide packages'
+    latest_published: '2020-01-13'
+    gap: unmaintained for over six years

@@ -1,0 +1,156 @@
+generated: '2026-09-13'
+method: searched
+source: >-
+  registry.npmjs.org, hub.docker.com/v2, search.maven.org and the PublicisSapient
+  GitHub organization, queried 2026-09-13
+name: Publicis Groupe — client libraries, CLIs and distributions
+note: >-
+  Publicis Groupe publishes nothing under its own name on any package registry. Every
+  first-party package below is published by Publicis Sapient, a wholly-owned Publicis
+  Groupe operating unit, under one of two identities: the @publicissapient npm scope /
+  PublicisSapient GitHub org (open-source engineering utilities) and the @psnext npm
+  scope ("Sapient AI Products" — the Slingshot, CoreAI and context-graph tooling). A
+  Maven Central search for g:com.publicissapient* returned 0 artifacts, so the Java
+  KnowHOW services are distributed only as source and as Docker images. PyPI, NuGet,
+  RubyGems, crates.io and pkg.go.dev carry no first-party Publicis packages.
+packages:
+- name: '@psnext/slingcli'
+  registry: npm
+  url: https://www.npmjs.com/package/@psnext/slingcli
+  official: true
+  kind: cli
+  version: 3.3.20260911-1
+  published: '2026-09-11'
+  license: UNLICENSED
+  install: npm install -g @psnext/slingcli
+  binary: sling
+  note: >-
+    Coding-agent CLI that connects to the Publicis Sapient Slingshot enterprise LLM
+    gateway; bundles the "pi" coding-agent runtime. Source is hosted on Publicis
+    Sapient's internal GitLab (pscode.lioncloud.net/psaiproducts/slingcli), so the
+    package is public but the repository is not.
+- name: '@psnext/lscg'
+  registry: npm
+  url: https://www.npmjs.com/package/@psnext/lscg
+  official: true
+  kind: cli-and-mcp-server
+  version: 0.1.6
+  published: '2026-08-05'
+  license: null
+  binary: lscg, context-graph
+  note: >-
+    Local source context graphs for repositories — parses code with Tree-sitter into
+    SQLite and exposes the graph through a CLI and a stdio MCP server (`lscg mcp`).
+    No license field is declared in the package manifest.
+- name: '@psnext/s-subagents'
+  registry: npm
+  url: https://www.npmjs.com/package/@psnext/s-subagents
+  official: true
+  kind: extension
+  version: 0.2.20260811-1
+  published: '2026-08-11'
+  license: MIT
+  binary: s-subagents
+  note: sling extension for delegating tasks to subagents with chains and parallel execution.
+- name: '@psnext/block-sdk'
+  registry: npm
+  url: https://www.npmjs.com/package/@psnext/block-sdk
+  official: true
+  kind: sdk
+  version: 0.0.32
+  published: '2025-11-03'
+  license: null
+  note: >-
+    Client-side SDK for building Blocks on Publicis Groupe's CoreAI platform — block
+    registration, two-way iframe messaging, an authenticated Fetcher, state manager and
+    ALX assistant integration. Also distributed by CDN; the SDK's own documentation
+    pins https://unpkg.com/@psnext/block-sdk@0.0.25/dist/block-sdk.js, seven patch
+    versions behind the current npm release.
+- name: '@psnext/block-sdk (CDN build)'
+  registry: cdn
+  url: https://unpkg.com/@psnext/block-sdk@0.0.25/dist/block-sdk.js
+  official: true
+  kind: sdk
+  version: 0.0.25
+  published: null
+  note: >-
+    Version read from the pinned unpkg URL in the package's own README. unpkg exposes no
+    per-version publish date, so `published` is null — checked, nothing to record.
+- name: '@psnext/design-system'
+  registry: npm
+  url: https://www.npmjs.com/package/@psnext/design-system
+  official: true
+  kind: ui-library
+  version: 2.7.0
+  published: '2026-09-11'
+  license: UNLICENSED
+  binary: psnext-design-system
+  note: Sapient AI Products design system — primitives, patterns and layouts.
+- name: '@psnext/kai'
+  registry: npm
+  url: https://www.npmjs.com/package/@psnext/kai
+  official: true
+  kind: ui-library
+  version: 2.0.7
+  published: '2025-11-13'
+  license: null
+  note: Chat UI component package used by the Sapient AI Products surfaces.
+- name: '@publicissapient/authorizationutil'
+  registry: npm
+  url: https://www.npmjs.com/package/@publicissapient/authorizationutil
+  official: true
+  kind: library
+  version: 1.4.8
+  published: '2025-07-02'
+  license: MIT
+  repository: https://github.com/PublicisSapient/authorization-util
+  note: Lightweight authorization-management utility published from the PublicisSapient GitHub org.
+- name: '@publicissapient/eslint-config-publicissapient-base'
+  registry: npm
+  url: https://www.npmjs.com/package/@publicissapient/eslint-config-publicissapient-base
+  official: true
+  kind: tooling
+  version: 0.0.4
+  published: '2020-01-13'
+  license: GPL-3.0
+  repository: https://github.com/PublicisSapient/javascript
+  note: Unmaintained — last published 2020-01-13.
+- name: publicissapient-javascript-styleguide
+  registry: npm
+  url: https://www.npmjs.com/package/publicissapient-javascript-styleguide
+  official: true
+  kind: tooling
+  version: 0.0.1
+  published: '2020-01-13'
+  license: GPL-3.0
+  repository: https://github.com/PublicisSapient/javascript
+  note: Unmaintained — last published 2020-01-13.
+- name: psknowhow/knowhow-api
+  registry: dockerhub
+  url: https://hub.docker.com/r/psknowhow/knowhow-api
+  official: true
+  kind: container
+  version: 17.0.0
+  published: '2026-05-07'
+  note: >-
+    Official KnowHOW API container. CURRENCY GAP: the newest published tag is 17.0.0
+    (2026-05-07) while the knowhow-api GitHub releases have reached 17.1.7
+    (2026-09-01) — the container distribution is seven patch releases and about four
+    months behind the source the project ships.
+excluded:
+- name: '@mgs416/ps-a11y-mcp'
+  registry: npm
+  version: 1.8.2
+  published: '2025-10-22'
+  official: false
+  reason: >-
+    Names a publicis-sapient/ps-a11y-mcp repository but is published under a personal
+    npm scope (@mgs416) with no Publicis Sapient maintainer, so first-party ownership
+    could not be established. Recorded as a lead, not credited as an official SDK.
+counts:
+  official: 11
+  registries:
+  - npm
+  - cdn
+  - dockerhub
+  unmaintained: 2

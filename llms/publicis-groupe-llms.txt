@@ -1,0 +1,61 @@
+# Publicis Groupe
+
+> Publicis Groupe is the French-headquartered global marketing, communications and
+> business-transformation holding company behind Publicis Sapient, Publicis Media, Epsilon,
+> CJ Affiliate, Leo Burnett, Saatchi & Saatchi, Digitas and Razorfish. The holding company
+> itself runs no developer program: publicisgroupe.com publishes no API, no documentation
+> portal and no /.well-known discovery document. Its publicly readable machine-readable
+> surface is produced by Publicis Sapient, and the Groupe's two hosted API businesses —
+> Epsilon and CJ Affiliate — are profiled separately.
+
+Generated 2026-09-13 by the API Evangelist enrichment pipeline from this repository's
+apis.yml and artifacts. This file was authored by API Evangelist, not by Publicis Groupe;
+no /llms.txt is served on any Publicis host (probed 2026-09-13, all 404 or SPA shell).
+
+## What exists
+
+- [Publicis Sapient KnowHOW](https://knowhow.suite.publicissapient.com/wiki/spaces/PS/pages/5570561/KnowHOW): Apache-2.0 engineering-KPI platform. Self-hosted. The Spring Boot service runs under the /api context path and generates its own OpenAPI 3 document at /api/v3/api-docs, with Swagger UI at /api/swagger-ui/index.html, on whatever host an operator deploys it to. There is no public instance and therefore no public base URL and no captured spec.
+- [KnowHOW installation and upgrade](https://knowhow.suite.publicissapient.com/wiki/spaces/PS/pages/7864331/KnowHOW+Installation+Upgrade): how to stand up the suite.
+- [Sapient Slingshot](https://www.publicissapient.com/platforms/slingshot): proprietary AI software-engineering platform and enterprise LLM gateway. The public client is the `sling` CLI on npm; the gateway's HTTP contract is not published.
+- CoreAI Block SDK: client-side SDK for building iframe Blocks on Publicis Groupe's CoreAI platform, published as @psnext/block-sdk.
+
+## Source code
+
+- [PublicisSapient on GitHub](https://github.com/PublicisSapient): knowhow-api, knowhow-ui, knowhow-common, knowhow-processors, knowhow-mcp, authorization-util, enable-a11y and others.
+- [knowhow-api releases](https://github.com/PublicisSapient/knowhow-api/releases): dated semver release stream, currently 17.1.7 (2026-08-31).
+- [psknowhow/knowhow-api on Docker Hub](https://hub.docker.com/r/psknowhow/knowhow-api): official container, newest tag 17.0.0 (2026-05-07) — behind the source release line.
+- [publicisworldwide on GitHub](https://github.com/publicisworldwide): infrastructure and visualization repositories, last active years ago.
+
+## Agent surfaces
+
+- MCP: two first-party Model Context Protocol servers, both operator-installed, neither hosted by Publicis. `@psnext/lscg` runs over stdio (`lscg mcp`) and exposes six tools — context_graph_scan, context_graph_status, context_graph_nodes, context_graph_edges, context_graph_neighbors, context_graph_query. `knowhow-mcp` is a self-hosted Spring Boot server speaking MCP 2024-11-05 over HTTP+SSE with one tool, ask_gravity_bot, a RAG assistant over the KnowHOW Confluence space.
+- A2A: no agent card. /.well-known/agent-card.json and /.well-known/agent.json were probed on all seven hosts; every result was a 404 or an HTML shell.
+
+## Artifacts in this profile
+
+- [Packages and SDKs](packages/publicis-groupe-packages.yml)
+- [MCP servers](mcp/publicis-groupe-mcp.yml)
+- [Command-line interfaces](cli/publicis-groupe-cli.yml)
+- [Embeddable components](components/publicis-groupe-components.yml)
+- [Authentication profile](authentication/publicis-groupe-authentication.yml)
+- [Conformance and compliance](conformance/publicis-groupe-conformance.yml)
+- [Lifecycle](lifecycle/publicis-groupe-lifecycle.yml)
+- [Change history](changelog/publicis-groupe-changelog.yml)
+- [Plans and pricing](plans/publicis-groupe-plans-pricing.yml)
+- [Rate limits](rate-limits/publicis-groupe-rate-limits.yml)
+- [Well-known discovery probe](well-known/publicis-groupe-well-known.yml)
+- [Domain security](security/publicis-groupe-domain-security.yml)
+
+## Corporate
+
+- [About Publicis Groupe](https://www.publicisgroupe.com/en/the-groupe/about-publicis-groupe)
+- [Legal mentions](https://www.publicisgroupe.com/en/legal-mentions)
+- [Privacy policy and cookies notice](https://www.publicisgroupe.com/en/cookies)
+- [Press releases](https://www.publicisgroupe.com/en/news/press-releases)
+- [Information Security (JANUS Code of Ethics)](https://publicisgroupe-csr-smart-data.com/assets/upload/en/Information%20Security%202020.pdf): states ISO 27001 adoption group-wide and formal ISO 27001 certification for named business areas.
+
+## Not present
+
+- No OpenAPI, AsyncAPI, GraphQL SDL, Protobuf or WSDL contract is published on any Publicis Groupe host.
+- No /.well-known/security.txt, api-catalog, openid-configuration, oauth-authorization-server or ai-plugin.json. The security.txt served on the KnowHOW wiki is Atlassian's, not Publicis Groupe's.
+- No status page, no deprecation policy, no published rate limits, no API pricing, no sandbox, no self-service sign-up.

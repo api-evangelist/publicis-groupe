@@ -1,0 +1,193 @@
+generated: '2026-09-13'
+method: probed
+source: live HTTP probes of every host this record knows, 2026-09-13
+name: Publicis Groupe — /.well-known discovery probe
+summary: >-
+  Every named discovery path was probed on all seven hosts in this record. Publicis Groupe
+  serves none of them. Two classes of false positive were found and are recorded as misses:
+  publicissapient.com and sapientaiproducts.com are single-page applications whose
+  catch-all answers HTTP 200 with an HTML shell for paths that do not exist, and
+  knowhow.suite.publicissapient.com serves a real RFC 9116 security.txt that belongs to
+  Atlassian, not to Publicis — its own Canonical field points at
+  https://www.atlassian.com/.well-known/security.txt, because the KnowHOW documentation
+  wiki is hosted Confluence Cloud. No WellKnown or SecurityTxt pointer is emitted in
+  apis.yml; this file records an absence, and an absence must not read as a presence.
+hosts:
+- host: publicisgroupe.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+  - path: /llms.txt
+    status: 404
+- host: www.publicisgroupe.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+  - path: /llms.txt
+    status: 404
+  - path: /openapi.json
+    status: 404
+- host: publicissapient.com
+  note: >-
+    AEM/SPA catch-all. Three paths answer 200 but return the site's HTML shell
+    (Content-Type text/html, 280KB, body begins <!DOCTYPE HTML>), which is not a document.
+    Treated as misses.
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 200
+    result: html-shell
+  - path: /.well-known/agent-card.json
+    status: 200
+    result: html-shell
+  - path: /.well-known/agent.json
+    status: 200
+    result: html-shell
+  - path: /llms.txt
+    status: 404
+- host: www.publicissapient.com
+  note: same SPA catch-all as the apex host
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 200
+    result: html-shell
+  - path: /.well-known/agent-card.json
+    status: 200
+    result: html-shell
+  - path: /.well-known/agent.json
+    status: 200
+    result: html-shell
+  - path: /llms.txt
+    status: 404
+- host: knowhow.suite.publicissapient.com
+  note: >-
+    KnowHOW documentation wiki, running on Atlassian Confluence Cloud. The 200 on
+    security.txt is Atlassian's platform document, saved verbatim for the record and NOT
+    credited to Publicis Groupe.
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    file: publicis-groupe-knowhow-atlassian-security.txt
+    result: third-party
+    owner: Atlassian
+    owner_evidence: 'Canonical: https://www.atlassian.com/.well-known/security.txt; Contact: mailto:security@atlassian.com'
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+  - path: /llms.txt
+    status: 404
+- host: sapientslingshot.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+  - path: /llms.txt
+    status: 404
+  - path: /openapi.json
+    status: 404
+- host: sapientaiproducts.com
+  note: >-
+    SPA catch-all serving a 1.6KB HTML shell with 200 for most /.well-known paths. All
+    recorded as misses.
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    result: html-shell
+  - path: /.well-known/openid-configuration
+    status: 200
+    result: html-shell
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    result: html-shell
+  - path: /.well-known/oauth-protected-resource
+    status: 200
+    result: html-shell
+  - path: /.well-known/api-catalog
+    status: 200
+    result: html-shell
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+  - path: /llms.txt
+    status: 200
+    result: html-shell
+counts:
+  hosts: 7
+  paths_probed: 65
+  real_first_party_documents: 0
+  third_party_documents: 1
+  html_shell_false_positives: 12

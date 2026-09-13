@@ -1,0 +1,55 @@
+generated: '2026-09-13'
+method: searched
+source: >-
+  https://registry.npmjs.org/@psnext/block-sdk and https://registry.npmjs.org/@psnext/design-system
+  package READMEs and manifests, read 2026-09-13
+name: Publicis Groupe — embeddable and client-side components
+note: >-
+  Publicis Groupe's CoreAI platform renders third-party "Blocks" as iframes inside a
+  canvas. The Block SDK is the client-side contract for those embeds — registration,
+  cross-frame messaging and an authenticated fetch wrapper — and is the only embeddable
+  component surface the Groupe publishes to a public registry. It is explicitly scoped:
+  "This SDK is a client-side SDK intended exclusively for use with the CoreAI platform."
+families:
+- family: CoreAI Blocks
+  package: '@psnext/block-sdk'
+  version: 0.0.32
+  published: '2025-11-03'
+  loader:
+    cdn: https://unpkg.com/@psnext/block-sdk@0.0.25/dist/block-sdk.js
+    pinned_version_in_docs: 0.0.25
+    note: >-
+      The SDK's own installation example pins 0.0.25 on unpkg while npm is at 0.0.32, so a
+      consumer following the documentation loads a build seven patch versions old.
+  embed_model: iframe inside the CoreAI canvas
+  capabilities:
+  - name: register
+    description: >-
+      Registers the block with the CoreAI platform. Since 0.0.11 it returns a Promise that
+      resolves to a Block SDK instance and may throw when block authentication fails.
+  - name: two-way communication
+    description: Send and receive data between blocks and FE/BE components such as ALX and the Host app.
+  - name: Fetcher
+    description: >-
+      Wrapper around browser fetch with integrated CoreAI authentication, token validation
+      and automatic token refresh.
+  - name: ResizeObserver
+    description: Reports block dimension changes so the platform can resize the block container.
+  - name: State Manager
+    description: Persists block state across sessions in build and play mode.
+  - name: Logger
+    description: CoreAI-prefixed logging with levels and runtime configuration.
+  - name: ALX Chat Assistant Agent
+    description: >-
+      Integrates an Enterprise Assistant Agent when the block declares an assistantId in
+      its blocks.json.
+- family: Sapient AI Products design system
+  package: '@psnext/design-system'
+  version: 2.7.0
+  published: '2026-09-11'
+  description: Primitives, patterns and layouts used across the Sapient AI Products surfaces.
+  note: >-
+    Published UNLICENSED with no public documentation site; recorded as present, not as an
+    openly reusable component library.
+counts:
+  families: 2

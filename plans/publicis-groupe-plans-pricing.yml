@@ -1,0 +1,26 @@
+generated: '2026-09-13'
+method: searched
+source: >-
+  https://www.publicisgroupe.com/en, https://www.publicissapient.com/platforms/slingshot,
+  https://github.com/PublicisSapient/knowhow-api and the npm registry entries for the
+  @psnext scope; searched 2026-09-13
+name: Publicis Groupe — plans and pricing
+plan_count: 0
+note: >-
+  Publicis Groupe publishes no API pricing of any kind. It is an agency holding company
+  whose commercial model is negotiated client engagement, and none of its public developer
+  surfaces carries a plans page. The three that exist are priced in different, non-listed
+  ways: the KnowHOW suite is free and open source under Apache-2.0 (no plans because there
+  is nothing to buy); Sapient Slingshot is an internal and client platform whose access is
+  provisioned with the engagement — its public page carries no pricing and no sign-up, only
+  a contact route; and the CoreAI Block SDK is published to npm for building blocks on a
+  platform that is not sold self-service. There is no "contact sales for API pricing" page
+  either, so this is an absence of the pricing surface rather than an enterprise gate on it.
+plans: []
+evidence:
+- url: https://www.publicissapient.com/platforms/slingshot
+  status: 200
+  finding: platform page with no pricing, no plan tiers and no sign-up
+- url: https://www.publicisgroupe.com/en
+  status: 200
+  finding: corporate site with no developer or pricing section

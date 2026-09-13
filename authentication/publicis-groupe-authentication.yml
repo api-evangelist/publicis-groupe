@@ -1,0 +1,68 @@
+generated: '2026-09-13'
+method: searched
+source: >-
+  PublicisSapient/knowhow-api src/main/java/com/publicissapient/kpidashboard/apis/config/OpenApiConfig.java
+  (first-party source) and the @psnext/slingcli and @psnext/block-sdk package READMEs, read 2026-09-13
+name: Publicis Groupe — authentication profile
+note: >-
+  Derived from first-party source and published package documentation rather than from a
+  captured OpenAPI, because the KnowHOW spec is generated at runtime on a self-hosted
+  instance and no public deployment exists to fetch it from. Each scheme below is quoted
+  from the code or docs that define it.
+apis:
+- api: publicis-groupe-knowhow
+  name: Publicis Sapient KnowHOW
+  source: >-
+    OpenApiConfig.java declares both schemes and applies them as top-level security
+    requirements on the generated OpenAPI document.
+  security_schemes:
+  - key: cookieAuth
+    type: apiKey
+    in: cookie
+    name: authCookie
+    description: Session cookie issued by the KnowHOW auth service after interactive login.
+  - key: apiKeyAuth
+    type: apiKey
+    in: header
+    name: x-api-key
+    description: Static API key header for machine-to-machine calls against a KnowHOW deployment.
+  applied: both schemes are added as OpenAPI securityItems, so they apply document-wide
+  oauth2: false
+  scopes: none — neither scheme carries a scope model
+- api: publicis-groupe-sapient-slingshot
+  name: Sapient Slingshot
+  source: '@psnext/slingcli README: "First-time login" and "Environment variables"'
+  security_schemes:
+  - key: slingshotOAuth
+    type: oauth2
+    flow: authorization_code (browser)
+    description: >-
+      `/login slingshot` inside the sling TUI opens a browser window and completes an
+      interactive login against Slingshot. The authorization server, token endpoint and
+      scopes are not published; no /.well-known/oauth-authorization-server document is
+      served on any Publicis host probed.
+  - key: slingshotToken
+    type: http
+    scheme: bearer
+    env: SLINGSHOT_TOKEN
+    description: >-
+      A pre-issued Slingshot access token supplied via the SLINGSHOT_TOKEN environment
+      variable, which bypasses the interactive login.
+- api: coreai-blocks
+  name: CoreAI Block SDK
+  source: '@psnext/block-sdk README: Fetcher and register()'
+  security_schemes:
+  - key: coreaiBlockToken
+    type: platform-managed
+    description: >-
+      Blocks authenticate through the SDK's register() call; the Fetcher utility carries
+      integrated CoreAI authentication with token validation and automatic refresh. Token
+      format, issuer and lifetime are not published.
+observations:
+  self_service_signup: false
+  public_token_issuance: false
+  discovery_documents_served: none
+  note: >-
+    Nothing in the Groupe's public surface issues credentials to an unaffiliated developer.
+    KnowHOW keys are minted inside an operator's own deployment; Slingshot and CoreAI
+    credentials are issued to Publicis employees and clients.

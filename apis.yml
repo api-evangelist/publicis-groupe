@@ -1,20 +1,145 @@
 aid: publicis-groupe
 name: Publicis Groupe
-description: 'Publicis Groupe is a company surfaced via the API Evangelist harvest backlog (source: absent-parent)
-  and added to the network as a stub for full-pipeline profiling.'
+description: >-
+  Publicis Groupe is the French-headquartered global marketing, communications and
+  business-transformation holding company behind Publicis Sapient, Publicis Media,
+  Epsilon, CJ Affiliate, Leo Burnett, Saatchi & Saatchi, Digitas and Razorfish. The
+  Groupe itself runs no public developer program and publishes no API at
+  publicisgroupe.com; its machine-readable surface is produced by the operating
+  units. The largest publicly readable one is the Publicis Sapient KnowHOW suite —
+  an Apache-2.0 engineering-KPI platform (knowhow-api / knowhow-ui / knowhow-common /
+  knowhow-processors on GitHub, container psknowhow/knowhow-api on Docker Hub) whose
+  Spring Boot service self-documents an OpenAPI at /api/v3/api-docs on whatever host
+  an operator deploys it to, plus knowhow-mcp, a self-hosted MCP server exposing the
+  KnowHOW documentation assistant. Alongside it Publicis Sapient publishes the
+  @psnext npm scope — the sling CLI for the Sapient Slingshot enterprise LLM gateway,
+  the lscg local source-context-graph CLI and stdio MCP server, and the Block SDK for
+  building iframe Blocks on Publicis Groupe's CoreAI platform. Epsilon and
+  CJ Affiliate, which do publish hosted API contracts, are profiled in their own
+  API Evangelist repositories.
 url: https://raw.githubusercontent.com/api-evangelist/publicis-groupe/refs/heads/main/apis.yml
+image: https://www.publicisgroupe.com/themes/custom/publicis/front/src/images/theme/share.jpg
 x-type: company
 x-source: harvest:absent-parent
-x-tier: stub
-x-tier-reason: harvest
-specificationVersion: '0.20'
+specificationVersion: '0.23'
 created: '2026-09-13'
 modified: '2026-09-13'
 tags:
 - Company
-apis: []
+- Advertising
+- Marketing
+- Media
+- Digital Transformation
+- Consulting
+- Artificial Intelligence
+- Developer Tools
+- Engineering Metrics
+- Open Source
+- Model Context Protocol
+- Agency Holding Company
+position: Producing
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+apis:
+- aid: publicis-groupe-knowhow
+  name: Publicis Sapient KnowHOW
+  description: >-
+    KnowHOW is Publicis Sapient's open-source (Apache-2.0) engineering measurement
+    platform — a KPI dashboard that pulls from Jira, source control, CI and quality
+    tools and reports delivery health across transformation programmes. It is a
+    self-hosted product, not a hosted API: the Spring Boot service is served under the
+    /api context path and generates its own OpenAPI 3 document at /api/v3/api-docs
+    (Swagger UI at /api/swagger-ui/index.html) on whatever host the operator deploys,
+    so no single public base URL exists and API Evangelist did not capture a static
+    spec. Authentication is a session cookie (authCookie) or an x-api-key header.
+  humanURL: https://knowhow.suite.publicissapient.com/wiki/spaces/PS/pages/5570561/KnowHOW
+  baseURL: https://{knowhow-host}/api
+  tags:
+  - Engineering Metrics
+  - DevOps
+  - KPI
+  - Open Source
+  - Self-Hosted
+  properties:
+  - type: Documentation
+    url: https://knowhow.suite.publicissapient.com/wiki/spaces/PS/pages/5570561/KnowHOW
+  - type: GettingStarted
+    url: https://knowhow.suite.publicissapient.com/wiki/spaces/PS/pages/7864331/KnowHOW+Installation+Upgrade
+  - type: SourceCode
+    url: https://github.com/PublicisSapient/knowhow-api
+  - type: ChangeLog
+    url: https://github.com/PublicisSapient/knowhow-api/releases
+- aid: publicis-groupe-sapient-slingshot
+  name: Sapient Slingshot
+  description: >-
+    Sapient Slingshot is Publicis Sapient's proprietary AI software-engineering
+    platform — an enterprise LLM gateway plus a family of agents for legacy
+    modernization, spec generation and code delivery. The client surface published to
+    the public is the npm package @psnext/slingcli, which installs a `sling` CLI that
+    authenticates to Slingshot over a browser OAuth flow (/login slingshot) or a
+    pre-issued SLINGSHOT_TOKEN bearer token and then routes to the gateway's model
+    catalogue. The gateway's HTTP contract itself is not published; the only gateway
+    host observed in first-party source is an internal one that does not resolve on
+    the public internet, so no base URL is recorded.
+  humanURL: https://www.publicissapient.com/platforms/slingshot
+  tags:
+  - Artificial Intelligence
+  - LLM Gateway
+  - Coding Agent
+  - Developer Tools
+  properties:
+  - type: Documentation
+    url: https://www.publicissapient.com/platforms/slingshot
+  - type: CLI
+    url: cli/publicis-groupe-cli.yml
+common:
+- type: DomainSecurity
+  url: security/publicis-groupe-domain-security.yml
+- type: Website
+  url: https://www.publicisgroupe.com/en
+- type: About
+  url: https://www.publicisgroupe.com/en/the-groupe/about-publicis-groupe
+- type: TermsOfService
+  url: https://www.publicisgroupe.com/en/legal-mentions
+- type: PrivacyPolicy
+  url: https://www.publicisgroupe.com/en/cookies
+- type: Blog
+  url: https://www.publicissapient.com/resources/blog
+- type: Support
+  url: https://www.publicissapient.com/contact
+- type: GitHubOrganization
+  url: https://github.com/PublicisSapient
+- type: Packages
+  url: packages/publicis-groupe-packages.yml
+- type: SDKs
+  url: packages/publicis-groupe-packages.yml
+- type: CLI
+  url: cli/publicis-groupe-cli.yml
+- type: Components
+  url: components/publicis-groupe-components.yml
+- type: MCPServer
+  url: mcp/publicis-groupe-mcp.yml
+- type: LLMsTxt
+  url: llms/publicis-groupe-llms.txt
+- type: Authentication
+  url: authentication/publicis-groupe-authentication.yml
+- type: Conformance
+  url: conformance/publicis-groupe-conformance.yml
+- type: Compliance
+  url: conformance/publicis-groupe-conformance.yml
+- type: Lifecycle
+  url: lifecycle/publicis-groupe-lifecycle.yml
+- type: ChangeLog
+  url: changelog/publicis-groupe-changelog.yml
+- type: Plans
+  url: plans/publicis-groupe-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/publicis-groupe-rate-limits.yml
+x-enrichment:
+  date: '2026-09-13'
+  status: enriched
+  artifacts_added: 14
+  pass: local-v3

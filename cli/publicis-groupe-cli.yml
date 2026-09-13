@@ -1,0 +1,79 @@
+generated: '2026-09-13'
+method: searched
+source: >-
+  https://registry.npmjs.org/@psnext/slingcli and https://registry.npmjs.org/@psnext/lscg
+  package READMEs, read 2026-09-13
+name: Publicis Groupe — command-line interfaces
+note: >-
+  Two first-party CLIs are published to npm by Publicis Sapient's Sapient AI Products
+  group. Both binaries are distributed publicly; their source repositories are on Publicis
+  Sapient's internal GitLab and are not readable.
+clis:
+- name: sling
+  package: '@psnext/slingcli'
+  version: 3.3.20260911-1
+  published: '2026-09-11'
+  install:
+  - npm install -g @psnext/slingcli
+  verify: sling --version
+  requirements: Node.js >= 20; macOS, Linux or Windows
+  auth:
+    interactive: /login slingshot (browser OAuth flow)
+    non_interactive: export SLINGSHOT_TOKEN="<access token>"
+  surface:
+  - group: session
+    commands:
+    - /login slingshot — log in to Slingshot
+    - /model — switch model
+    - /compact — compact conversation history
+    - /clear — clear current session
+    - /help — show all commands
+    - /quit — exit
+  - group: slingshot extensions
+    commands:
+    - /s:debug — toggle Slingshot debug logging
+    - /s:footer — toggle the Slingshot info footer
+    - /s:skills-manager — open the Skill Manager
+    - /s:filechanges — toggle file-change tracking
+    - /s:context — visualize context
+    - /s:acm — toggle Agentic Context Management
+  environment:
+  - SLINGSHOT_TOKEN — pre-set access token, skips the OAuth flow
+  - SLINGSHOT_PROJECT_ID — project id for analytics
+  - SLINGSHOT_WORKSPACE_ID — workspace id for analytics
+  - SLINGSHOT_DEBUG — enable debug logging
+  note: >-
+    The README publishes the gateway's model catalogue (GPT-5.x, Claude Opus/Sonnet 4.x,
+    o3/o4-mini, Gemini 2.5 Flash) but not the gateway's HTTP contract.
+- name: lscg
+  aliases:
+  - context-graph
+  package: '@psnext/lscg'
+  version: 0.1.6
+  published: '2026-08-05'
+  requirements: Node.js 24+; npm install scripts permitted for Tree-sitter native packages
+  surface:
+  - group: graph lifecycle
+    commands:
+    - init --scope both — create repo-local and home-level graph databases
+    - scan [--full] [--watch] — scan the repository into the graph
+    - watch — keep the repository current in the foreground
+    - status --scope repo|home|both — report stored graph state and freshness
+  - group: retrieval
+    commands:
+    - context <symbol> [--kind --depth --limit --file --excerpts --output] — bounded context around a symbol
+    - nodes [name] [--kind --limit --output] — list or search nodes
+    - edges [--kind --limit --output] — list edges (calls, imports, exports, attributed_to)
+    - neighbors <node-id> --depth N — traverse neighbours
+    - query "<sql>" — read-only SQL against the graph database
+  - group: visualization
+    commands:
+    - view [--scope --anchor --search --display --output] — interactive HTML or static SVG graph
+  - group: agent surface
+    commands:
+    - mcp — start the MCP server over stdio
+  storage:
+    repo: .sling/graph.sqlite
+    home: ~/.sling/graph.sqlite
+counts:
+  clis: 2

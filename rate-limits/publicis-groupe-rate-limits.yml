@@ -1,0 +1,28 @@
+generated: '2026-09-13'
+method: searched
+source: >-
+  https://knowhow.suite.publicissapient.com/wiki/spaces/PS/pages/5570561/KnowHOW,
+  PublicisSapient/knowhow-api source, and the @psnext/slingcli and @psnext/block-sdk
+  package documentation; searched 2026-09-13
+name: Publicis Groupe — published rate limits
+limit_count: 0
+limits: []
+response_headers: []
+exhaustion_status: not documented
+note: >-
+  No rate limit is documented on any public Publicis Groupe surface, and no runtime
+  rate-limit header could be observed because there is no public endpoint to call: KnowHOW
+  is self-hosted (any throttling is whatever the operator's own ingress applies), the
+  Slingshot LLM gateway is reachable only after an authenticated login to a host that does
+  not resolve publicly, and CoreAI Blocks run inside a platform canvas rather than against
+  a public API. An honest zero — the limits are not hidden behind a login, they are simply
+  not published.
+evidence:
+- url: https://github.com/PublicisSapient/knowhow-api
+  status: 200
+  finding: >-
+    No rate-limit filter, bucket configuration or 429 handling is declared in the published
+    application configuration.
+- url: https://www.publicissapient.com/platforms/slingshot
+  status: 200
+  finding: no quota, throttle or usage-limit statement

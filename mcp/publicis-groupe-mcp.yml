@@ -1,0 +1,90 @@
+generated: '2026-09-13'
+method: searched
+source: >-
+  https://github.com/PublicisSapient/knowhow-mcp (first-party source, Apache-2.0) and
+  https://registry.npmjs.org/@psnext/lscg (first-party package README), read 2026-09-13
+name: Publicis Groupe — Model Context Protocol servers
+status: published
+deployment:
+  mode: local-stdio
+  endpoint: null
+  install: npm install -g @psnext/lscg && lscg mcp
+  package: https://www.npmjs.com/package/@psnext/lscg
+  auth: none
+  verified: searched
+  note: >-
+    Publicis Groupe operates no vendor-hosted remote MCP endpoint. Both servers below are
+    operator-installed: @psnext/lscg is a stdio server started with `lscg mcp` on the
+    developer's own machine, and knowhow-mcp is a self-hosted Spring Boot container that
+    an operator runs themselves — its transport is HTTP/SSE rather than stdio, but like a
+    stdio package it requires a human to deploy it before any agent can reach it, so the
+    mode is recorded as local-stdio rather than remote. No endpoint URL is asserted
+    because no public one exists.
+servers:
+- name: lscg (context-graph)
+  vendor_unit: Publicis Sapient — Sapient AI Products
+  package: '@psnext/lscg'
+  version: 0.1.6
+  published: '2026-08-05'
+  transport: stdio
+  start_command: lscg mcp
+  auth: none
+  source: https://registry.npmjs.org/@psnext/lscg
+  method: searched
+  tools_source: >-
+    The package README's "MCP tools" section. Tool names are verbatim; input schemas were
+    not captured because that requires running the server and issuing tools/list against
+    it, which needs a local install.
+  tools:
+  - name: context_graph_scan
+    description: Scan the current repository into the repo-local and/or home-level graph databases.
+  - name: context_graph_status
+    description: Report stored graph state and freshness for a given scope.
+  - name: context_graph_nodes
+    description: List or search graph nodes, filterable by kind and name.
+  - name: context_graph_edges
+    description: List graph edges, filterable by kind (calls, imports, exports, attributed_to).
+  - name: context_graph_neighbors
+    description: Traverse neighbours of a node to a bounded depth.
+  - name: context_graph_query
+    description: Run a read-only SQL query against the graph database.
+  tool_count: 6
+- name: gravity-bot-mcp (knowhow-mcp)
+  vendor_unit: Publicis Sapient — KnowHOW
+  repository: https://github.com/PublicisSapient/knowhow-mcp
+  license: Apache-2.0
+  transport: http-sse
+  protocol_version: '2024-11-05'
+  server_version: 1.0.0
+  context_path: /mcp/api
+  default_port: 8085
+  paths:
+    sse: /mcp/sse
+    messages: /mcp/messages?sessionId={sessionId}
+  auth: none
+  source: >-
+    src/main/java/com/publicissapient/knowhow/knowhow/mcp/McpService.java and
+    McpController.java in PublicisSapient/knowhow-mcp
+  method: searched
+  tools:
+  - name: ask_gravity_bot
+    description: Ask a question about internal documentation (KPIs, DSR, etc.) using RAG.
+    input_schema:
+      type: object
+      properties:
+        question:
+          type: string
+          description: The question to ask the bot
+      required:
+      - question
+  tool_count: 1
+  note: >-
+    Retrieval-augmented assistant over the KnowHOW Confluence space
+    (knowhow.suite.publicissapient.com/wiki, space key PS). Requires an operator-supplied
+    LLM endpoint, a PostgreSQL/pgvector store and Confluence credentials; the shipped
+    defaults point at internal Publicis Sapient infrastructure that does not resolve
+    publicly.
+counts:
+  servers: 2
+  tools: 7
+  remote_endpoints: 0
