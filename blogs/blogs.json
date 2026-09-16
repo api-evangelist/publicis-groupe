@@ -1,0 +1,14 @@
+{
+  "repo": "publicis-groupe",
+  "feeds": [
+    {
+      "source": "https://www.publicisgroupe.com/en/cookies",
+      "feed_url": "https://www.publicisgroupe.com/en/cookies",
+      "title": "",
+      "saved": 0,
+      "method": "none"
+    }
+  ],
+  "post_count": 0,
+  "fetched": "2026-09-13T13:00:00Z"
+}
