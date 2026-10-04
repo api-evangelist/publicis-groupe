@@ -13,6 +13,21 @@ description: Publicis Groupe is the French-headquartered global marketing, commu
   the Block SDK for building iframe Blocks on Publicis Groupe's CoreAI platform. Epsilon and CJ Affiliate,
   which do publish hosted API contracts, are profiled in their own API Evangelist repositories.
 url: https://raw.githubusercontent.com/api-evangelist/publicis-groupe/refs/heads/main/apis.yml
+deliveryModel:
+  model: saas
+  license_evidence:
+    not_product:
+    - publicissapient/knowhow-api
+  open_source: unknown
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: low
+  source:
+  - pricing
+  - repository-not-product
+  generated: '2026-09-25'
+  method: derived
 image: https://www.publicisgroupe.com/themes/custom/publicis/front/src/images/theme/share.jpg
 x-type: company
 x-source: harvest:absent-parent
@@ -29,7 +44,7 @@ tags:
 - Artificial Intelligence
 - Developer Tools
 - Engineering Metrics
-- Open-Source
+- Open Source
 - MCP
 - Agency Holding Company
 tags_raw:
@@ -45,6 +60,7 @@ tags_raw:
 - Open Source
 - Model Context Protocol
 - Agency Holding Company
+- Open-Source
 position: Producing
 maintainers:
 - FN: Kin Lane
@@ -67,7 +83,7 @@ apis:
   - Engineering Metrics
   - DevOps
   - KPI
-  - Open-Source
+  - Open Source
   - Self-Hosted
   tags_raw:
   - Engineering Metrics
@@ -75,6 +91,7 @@ apis:
   - KPI
   - Open Source
   - Self-Hosted
+  - Open-Source
   properties:
   - type: Documentation
     url: https://knowhow.suite.publicissapient.com/wiki/spaces/PS/pages/5570561/KnowHOW
