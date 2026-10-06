@@ -33,7 +33,7 @@ x-type: company
 x-source: harvest:absent-parent
 specificationVersion: '0.23'
 created: '2026-09-13'
-modified: '2026-09-13'
+modified: '2026-10-06'
 tags:
 - Company
 - Advertising
@@ -127,6 +127,8 @@ apis:
   - type: CLI
     url: cli/publicis-groupe-cli.yml
 common:
+- url: https://www.publicisgroupe.com/fr/rss.xml
+  type: BlogRSS
 - type: DomainSecurity
   url: security/publicis-groupe-domain-security.yml
 - type: Website
